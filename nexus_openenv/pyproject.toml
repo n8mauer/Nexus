@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openenv-nexus"
+version = "0.1.0"
+description = "Nexus: Multi-agent compute cluster negotiation environment for OpenEnv"
+requires-python = ">=3.10"
+dependencies = [
+    "openenv-core[core]>=0.2.0",
+    "pydantic>=2.0",
+    "numpy>=1.24",
+]
+
+[project.scripts]
+server = "server.app:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["nexus*", "agents*", "server*"]
