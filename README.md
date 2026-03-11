@@ -438,12 +438,12 @@ These 5 combinations define the core technical contributions:
 
  The technical details, evaluation, and theoretical foundations are described in the accompanying IEEE-format paper:
 
- **[Read the paper (PDF)](nexus_paper.pdf)** | [LaTeX source](nexus_paper.tex)
+ **[Read the paper (PDF)](nexus_paper.pdf)**
 
 If you use Nexus in your research, please cite:
 
 ```bibtex
-@inproceedings{mauer2025nexus,
+@inproceedings{mauer2026nexus,
   title={Nexus: A Multi-Agent Negotiation Environment for Training Procurement AI with Theory-of-Mind Reasoning},
   author={Mauer, Nate},
   year={2026}
