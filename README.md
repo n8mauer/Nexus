@@ -440,12 +440,12 @@ These 5 combinations define the core technical contributions:
 
  **[Read the paper (PDF)](nexus_paper.pdf)** | [LaTeX source](nexus_paper.tex)
 
- If you use Nexus in your research, please cite:
+If you use Nexus in your research, please cite:
 
- \```bibtex
- @inproceedings{mauer2025nexus,
-   title={Nexus: A Multi-Agent Negotiation Environment for Training Procurement AI with Theory-of-Mind Reasoning},
-   author={Mauer, Nate},
-   year={2025}
- }
- \`
+```bibtex
+@inproceedings{mauer2025nexus,
+  title={Nexus: A Multi-Agent Negotiation Environment for Training Procurement AI with Theory-of-Mind Reasoning},
+  author={Mauer, Nate},
+  year={2026}
+}
+```
