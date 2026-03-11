@@ -11,7 +11,17 @@ Nexus is designed around three complementary tracks that map to open problems in
 1. **Multi-Agent Negotiation.** Agents interact through structured actions (bids, offers, coalition proposals, free-text messages) and must develop theory-of-mind to predict opponents' behavior from partial observations.
 2. **Fleet AI / Scalable Oversight.** A privileged supervisor agent observes all actions and must detect anomalous behavior (collusion, hoarding, free-riding) using interpretable machine learning probes, forming a closed feedback loop with the agents it monitors.
 3. **Multi-Actor Management (Halluminate).** A CTO agent issues high-level directives to semi-autonomous worker agents that may misinterpret or partially execute instructions, requiring the CTO to learn each worker's reliability profile.
-   
+
+The environment's core technical contributions include:
+
+- **Monte Carlo Tree Search (MCTS)** for negotiation planning under hidden information
+- **Mixture-of-Experts (MoE) coalition voting** with confidence-weighted splits and veto rounds
+- **CART ensemble probes** for real-time behavioral anomaly detection
+- **Market dynamics** with commission and price-impact physics
+- **Closed-loop oversight mechanism** where supervisor flags feed back into agent policy weights
+
+Trained agents exhibit theory-of-mind reasoning (anticipating competitor bids, forming strategic coalitions, and detecting deceptive signaling) behaviors that emerge from Group Relative Policy Optimization (GRPO) training rather than hand-coded rules. Nexus integrates with the OpenEnv 0.2.1 framework via a ProxyAgent HTTP bridge and supports GRPO fine-tuning of Qwen2.5-1.5B with Unsloth 4-bit quantization and LoRA. 
+
 ---
 
 ## 1. Concept
