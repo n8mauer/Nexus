@@ -14,11 +14,11 @@ Nexus is designed around three complementary tracks that map to open problems in
 
 The environment's core technical contributions include:
 
-- **Monte Carlo Tree Search (MCTS)** for negotiation planning under hidden information
-- **Mixture-of-Experts (MoE) coalition voting** with confidence-weighted splits and veto rounds
-- **CART ensemble probes** for real-time behavioral anomaly detection
-- **Market dynamics** with commission and price-impact physics
-- **Closed-loop oversight mechanism** where supervisor flags feed back into agent policy weights
+- **Monte Carlo Tree Search (MCTS).** Negotiation planning under hidden information, with UCB1 balancing exploration of new tactics against exploitation of proven strategies.
+- **Mixture-of-Experts (MoE) Coalition Voting.** Coalition members vote on resource splits using confidence-weighted per-option voting, with an elimination pre-pass acting as a veto round.
+- **CART Ensemble Probes.** Real-time behavioral anomaly detection where the supervisor probes agent behavioral streams (trade patterns, messages) for collusion signals via interpretable feature importance.
+- **Market Dynamics.** Commission, price impact, and portfolio accounting create realistic market physics, where large trades move prices, commissions discourage churn, and Sharpe ratio provides risk-adjusted evaluation.
+- **Closed-Loop Oversight Mechanism.** Supervisor detects anomaly, issues structured feedback, agent's BehavioralPolicy adjusts strategy weights, behavior changes, and the supervisor observes the new behavior.
 
 Trained agents exhibit theory-of-mind reasoning (anticipating competitor bids, forming strategic coalitions, and detecting deceptive signaling) behaviors that emerge from Group Relative Policy Optimization (GRPO) training rather than hand-coded rules. Nexus integrates with the OpenEnv 0.2.1 framework via a ProxyAgent HTTP bridge and supports GRPO fine-tuning of Qwen2.5-1.5B with Unsloth 4-bit quantization and LoRA. 
 
@@ -406,3 +406,30 @@ These 5 combinations define the core technical contributions:
 4. **Market Physics from Portfolio Simulation:** Commission, price impact, and portfolio accounting create realistic market dynamics -- large trades move prices, commissions discourage churn, Sharpe ratio provides risk-adjusted evaluation.
 
 5. **Feedback-Driven Oversight Loop:** Supervisor detects anomaly -> issues structured feedback -> agent's BehavioralPolicy adjusts strategy weights -> behavior changes -> supervisor observes new behavior. Closed oversight loop.
+
+
+## 13. Market Position & Strategic Analysis
+
+### Competitive Landscape
+
+| Category | Existing Tools | What They Miss |
+|----------|---------------|----------------|
+| Cloud Cost Optimization | Spot by NetApp, nOps | Algorithmic optimization only, no multi-agent negotiation, no adversarial reasoning |
+| Procurement AI | Pactum AI, Fairmarkit, Coupa | Agent-to-human negotiation or process automation,no agent-to-agent competition |
+| Multi-Agent RL Environments | PettingZoo, OpenSpiel, Melting Pot | Classical RL agents in abstract domains, no LLM-native design, no market physics |
+| LLM Multi-Agent Benchmarks | MultiAgentBench / MARBLE | Evaluation only, no training environment, no resource negotiation mechanics |
+| Agent Observability | AgentOps, Arize Phoenix, LangSmith | Passive logging,no active behavioral classification or strategy detection |
+
+### What Sets Nexus Apart
+
+- **Only framework combining** multi-agent LLM training, resource negotiation, behavioral oversight, and GRPO fine-tuning in a single environment.
+- **MCTS for negotiation planning** with no existing tool or paper applies Monte Carlo Tree Search to multi-agent resource negotiation with hidden information.
+- **Active behavioral oversight** that has a CART ensemble probes classify agent strategies (collusion, hoarding, free-riding) in real time, going beyond passive observability.
+- **Emergent theory-of-mind** which are trained agents develop bid anticipation, coalition strategy, and counter-manipulation without hand-coded rules, aligned with cutting-edge ToM research.
+- **Direct simulation-to-reality mapping** allowing for GPU/CPU resources map to EC2 instance types, job deadlines to SLA workloads, market mechanics to spot pricing dynamics.
+
+### Key Risks
+
+- **Simulation-to-reality gap** where real cloud markets have API rate limits, multi-region pricing, and contractual constraints not yet modeled.
+- **Well-funded incumbents** that are Spot by NetApp, and Pactum AI have production deployments and enterprise sales teams; they could add agent-based negotiation to existing platforms.
+- **Scale validation needed** with current evaluation covers 2–4 agents over 10–50 rounds; behavior at 8+ agents or hundreds of rounds is untested.
