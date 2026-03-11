@@ -433,3 +433,19 @@ These 5 combinations define the core technical contributions:
 - **Simulation-to-reality gap** where real cloud markets have API rate limits, multi-region pricing, and contractual constraints not yet modeled.
 - **Well-funded incumbents** that are Spot by NetApp, and Pactum AI have production deployments and enterprise sales teams; they could add agent-based negotiation to existing platforms.
 - **Scale validation needed** with current evaluation covers 2–4 agents over 10–50 rounds; behavior at 8+ agents or hundreds of rounds is untested.
+ 
+ ## 14. Paper
+
+ The technical details, evaluation, and theoretical foundations are described in the accompanying IEEE-format paper:
+
+ **[Read the paper (PDF)](nexus_paper.pdf)** | [LaTeX source](nexus_paper.tex)
+
+ If you use Nexus in your research, please cite:
+
+ \```bibtex
+ @inproceedings{mauer2025nexus,
+   title={Nexus: A Multi-Agent Negotiation Environment for Training Procurement AI with Theory-of-Mind Reasoning},
+   author={Mauer, Nate},
+   year={2025}
+ }
+ \`
