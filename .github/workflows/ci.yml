@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.lock
+
+      - name: Install dependencies from lock
+        run: |
+          python -m pip install --upgrade pip
+          pip install -c requirements.lock -e ".[dev]"
+
+      - name: Gate 1, full test suite
+        run: python -m pytest
+
+      - name: Gate 2, seeded demo
+        run: python demo.py
+
+      - name: Gate 3, OpenEnv server round trip
+        run: python scripts/openenv_smoke.py

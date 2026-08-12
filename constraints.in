@@ -1,0 +1,9 @@
+# Input constraints for regenerating requirements.lock with:
+#   uv pip compile pyproject.toml --extra dev --universal --python-version 3.11 --constraint constraints.in -o requirements.lock
+#
+# openenv-core is pinned to 0.2.1 to match deploy/space/uv.lock and the
+# synchronous EnvClient integration in nexus_openenv/client.py.
+# openenv-core 0.2.2 and later make EnvClient async by default, which
+# breaks the synchronous NexusEnv usage exercised by
+# scripts/openenv_smoke.py (Gate 3 in docs/ACCEPTANCE.md).
+openenv-core==0.2.1

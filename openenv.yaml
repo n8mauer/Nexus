@@ -1,0 +1,6 @@
+name: nexus
+version: 0.1.0
+description: "Multi-agent compute cluster negotiation environment where AI agents compete and cooperate to allocate compute resources, complete jobs, and maximize scores through market trading and coalition formation."
+action_model: nexus_openenv.models.NexusAction
+observation_model: nexus_openenv.models.NexusObservation
+server_module: nexus_openenv.server.app
